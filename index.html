@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#54245d">
+<title>Happy 19th Birthday, Baby ❤️</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Georgia,serif;color:#fff;text-align:center;min-height:100vh;
+  background:linear-gradient(135deg,#1b102b,#54245d,#a33d70);
+  overflow-x:hidden
+}
+.container{max-width:750px;margin:auto;padding:35px 20px;position:relative;z-index:2}
+.small-title{color:#ffd6e7;letter-spacing:4px;font:12px Arial,sans-serif;margin-top:25px}
+h1{font-size:clamp(38px,9vw,65px);color:#ffb6d5;margin:25px 0 10px;text-shadow:0 0 20px #ff69b4}
+.age{font-size:100px;font-weight:bold;color:#ffe0a3;text-shadow:0 0 25px #ffc75e}
+.subtitle{font-size:20px;color:#ffe3ef;margin:15px 0 30px}
+.cake{font-size:75px;margin:20px;animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+button{
+  background:linear-gradient(45deg,#ff6fae,#ffb3cf);color:#40132f;border:0;
+  padding:15px 28px;border-radius:30px;font-size:16px;font-weight:bold;
+  cursor:pointer;margin:15px;box-shadow:0 0 20px #ff69b4;transition:.3s
+}
+button:hover{transform:scale(1.06)}
+button:focus-visible{outline:3px solid white;outline-offset:4px}
+.message-card{
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(12px);border-radius:22px;padding:30px 23px;margin-top:35px;
+  text-align:left;line-height:1.9;box-shadow:0 10px 35px rgba(0,0,0,.25)
+}
+.message-card h2{text-align:center;color:#ffc4dc;margin-bottom:22px}
+.message-card p{margin-bottom:17px;font-size:16px}
+.signature{text-align:center;color:#ffd3e5;font-size:20px;margin-top:25px}
+.footer{margin:45px auto 10px;padding:25px 10px;border-top:1px solid rgba(255,255,255,.2);color:#ffd4e5;font-size:14px;line-height:2}
+.heart{position:fixed;bottom:-30px;animation:float 7s linear forwards;opacity:.7;pointer-events:none;z-index:1}
+@keyframes float{0%{transform:translateY(0) rotate(0);opacity:0}20%{opacity:.8}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+#surprise{display:none;font-size:23px;color:#ffe0a3;margin-top:25px;animation:appear 1s ease;line-height:1.6}
+@keyframes appear{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+@media(max-width:480px){.container{padding:25px 15px}.message-card{padding:25px 18px}.age{font-size:86px}}
+</style>
+</head>
+<body>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<main class="container">
+  <div class="small-title">A SPECIAL DAY FOR SOMEONE SPECIAL</div>
+  <h1>Happy Birthday</h1>
+  <div class="age">19</div>
+  <div class="subtitle">To my beautiful Baby ❤️</div>
+  <div class="cake" aria-hidden="true">🎂</div>
+  <p style="color:#ffe0ef">Today is all about YOU! You deserve all the happiness in the world.</p>
+  <button type="button" onclick="celebrate()">🎉 Celebrate Your Day</button>
+
+  <section class="message-card">
+    <h2>💌 A Message For You</h2>
+    <p>Happy birthday, Baby! ❤️ I wish you a good, fantastic, enjoyable and funny birthday filled with laughter, happiness and beautiful memories.</p>
+    <p>We thank God for giving you life up to this moment. We can never take that for granted, Baby. Every new year of life is a blessing, and today we celebrate the beautiful gift that you are.</p>
+    <p>I'm genuinely happy to be celebrating this special day with you. As you turn 19, I pray that God continues to guide your steps, protect you, bless you and open new doors in your life.</p>
+    <p>May this new chapter bring you more reasons to smile, more opportunities, unexpected blessings and beautiful experiences. May your dreams become reality, and may you always find strength even on difficult days.</p>
+    <p>Never stop being yourself. Keep smiling, keep shining and keep being the amazing person you are. You deserve good things, Baby. ❤️</p>
+    <p>Enjoy every little moment today, laugh as much as you can, eat your cake and make beautiful memories. Today is YOUR day!</p>
+    <div class="signature">Happy 19th Birthday, Baby! 🥂❤️</div>
+  </section>
+
+  <button type="button" onclick="showSurprise()">❤️ One More Thing...</button>
+  <div id="surprise">May your 19th year be your most beautiful chapter yet. You are special, Baby! 👑❤️</div>
+
+  <footer class="footer">
+    Made with endless love ❤️<br>
+    Made by your favourite person,<br>
+    <strong style="color:#ffd6e7;font-size:23px">Steve 🫶🏿</strong>
+    <p style="margin-top:12px;font-size:20px;color:#ffb6d5;font-weight:bold">I really love you 🫶🏿❤️💕</p>
+    <p style="margin-top:15px">Forever wishing you happiness. ✨</p>
+  </footer>
+</main>
+
+<script>
+function createHeart(){
+  const heart=document.createElement("div");
+  heart.className="heart";
+  heart.textContent=["❤️","💕","💗","💖","✨"][Math.floor(Math.random()*5)];
+  heart.style.left=Math.random()*100+"vw";
+  heart.style.fontSize=(15+Math.random()*20)+"px";
+  heart.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),10000);
+}
+setInterval(createHeart,500);
+
+function showSurprise(){
+  document.getElementById("surprise").style.display="block";
+}
+
+function celebrate(){
+  const canvas=document.getElementById("confetti");
+  const ctx=canvas.getContext("2d");
+  const dpr=Math.min(window.devicePixelRatio||1,2);
+  canvas.width=window.innerWidth*dpr;
+  canvas.height=window.innerHeight*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  const w=window.innerWidth,h=window.innerHeight;
+  const colors=["#ff69b4","#ffd700","#ffffff","#c77dff","#ff9f43"];
+  const pieces=Array.from({length:180},()=>({
+    x:Math.random()*w,y:-Math.random()*h,size:4+Math.random()*7,
+    speed:2+Math.random()*5,color:colors[Math.floor(Math.random()*colors.length)],
+    drift:Math.random()*2-1,rotation:Math.random()*Math.PI
+  }));
+  let frame=0;
+  function animate(){
+    ctx.clearRect(0,0,w,h);
+    pieces.forEach(p=>{
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rotation);
+      ctx.fillStyle=p.color;ctx.fillRect(-p.size/2,-p.size/2,p.size,p.size*1.5);
+      ctx.restore();
+      p.y+=p.speed;p.x+=p.drift;p.rotation+=.04;
+    });
+    frame++;
+    if(frame<180)requestAnimationFrame(animate);
+    else ctx.clearRect(0,0,w,h);
+  }
+  animate();
+}
+</script>
+</body>
+</html>
